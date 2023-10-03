@@ -1,5 +1,30 @@
 <script setup>
   import { Icon } from '@iconify/vue';
+
+  const login=ref(
+    {
+      email:'',
+      password:'',
+      agree:''
+    }
+  )  
+
+  const auth= ref('')
+  const isOpen= ref(false)
+  onMounted(() => {
+    auth.value =localStorage.getItem('auth')
+   
+  })
+  const handleLogout = () => {
+    localStorage.removeItem('auth')
+    
+    return auth.value= false
+  }
+  const handleLogin = () => {
+    localStorage.setItem('auth',true) 
+    isOpen.value= false
+    return  auth.value= true
+  }
 </script>
 
 <template>
@@ -26,16 +51,18 @@
           <NuxtLink to="/home" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/search" class=" py-2 px-4 text-gray-900 dark:text-gray-100">About</NuxtLink>
+          <NuxtLink to="/search" class=" py-2 px-4 text-gray-900 dark:text-gray-100">Browse</NuxtLink>
+          <NuxtLink to="/" class=" py-2 px-4 text-gray-900 dark:text-gray-100">About</NuxtLink>
         </li>
 
       </ul>
     </div>
-      <!-- Dropdown menu -->
-    <div class="hidden md:flex">    
-      <DropdownMenu title="Menu" >
+    <div class="flex gap-8 items-center align-middle text-gray-400">
+      <Icon v-show="auth" icon="jam:messages-f"  width="20" height="20"/> 
+      <div class="hidden md:flex">    
+      <DropdownMenu title="Menu" v-if="auth">
         <template v-slot:button>
-          <Icon icon="mingcute:user-4-fill"  width="30" height="30"/> 
+          <Icon icon="mingcute:user-4-fill"  width="20" height="20"/> 
         </template>
         <div class="px-4 py-3">
             <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
@@ -52,13 +79,44 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" @click="handleLogout">Sign out</a>
           </li>
         </ul>
       </DropdownMenu>
+      <button v-else @click="isOpen= !isOpen">Login</button>
+      </div>
     </div>
+      <!-- Dropdown menu -->
+
     </div>
   </header>
+  <Modal v-if="isOpen" @handleClick="isOpen= false">
+    
+    <template v-slot:buttons>
+    <form class="space-y-6" @submit.prevent="handleLogin">
+      <h5 class="font-medium text-gray-900 dark:text-white">Sign in to Open App</h5>
+
+        <FormInput type="email" v-model="login.email" title="Email"/>
+        <FormInput type="password" v-model="login.password" title="Password" placeholder="••••••••"/>
+      
+        <div class="flex flex-col items-start text-xs">
+            <a href="#" class="ml-auto text-blue-700 hover:underline dark:text-blue-500">Forgot Password?</a>
+            <div class="flex items-start">
+              <div class="flex justify-start gap-2 py-4">
+                <input type="checkbox" /> <span class="text-gray-800 dark:text-gray-200">I agree to the privacy notice and data processing agreement</span>
+              </div>
+            </div>
+           
+        </div>
+        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+        <button type="button" class="text-white w-full  bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2">Sign up with Google<div></div></button>
+        <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
+            Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+        </div>
+    </form>
+  </template>
+  </Modal>
+  <Backdrop v-show=" isOpen"  @handleClick="isOpen=false" />
 </template>
 <style scoped>
   .router-link-active {
