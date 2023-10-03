@@ -29,8 +29,8 @@
 
 <template>
   <header class="bg-white shadow dark:bg-gray-900 sticky top-0 z-[99]">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <NuxtLink to="https://Openapp.com/" class="flex items-center gap-2">
+    <div class="w-full md:max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <NuxtLink to="https://open-science-three.vercel.app/" class="flex items-center gap-2">
         <Icon icon="logos:sensu-icon" width="30" height="30"/>
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Open Site</span>
     </NuxtLink>
@@ -73,8 +73,8 @@
 
       </ul>
     </div>
-    <div class="flex gap-8 items-center align-middle text-gray-400">
-      <Icon v-show="auth" icon="jam:messages-f"  width="20" height="20"/> 
+    <div class="hidden md:flex gap-8 items-center align-middle text-gray-400">
+      <Icon class="hidden md:flex" v-show="auth" icon="jam:messages-f"  width="20" height="20"/> 
       <div class="hidden md:flex">    
       <DropdownMenu title="Menu" v-if="auth">
         <template v-slot:button>

@@ -17,14 +17,14 @@
 </script>
 
 <template>
-  <div class="max-w-screen-xl mx-auto text-gray-800 dark:text-gray-300">
+  <div class="max-w-screen-xl mx-auto text-gray-800 dark:text-gray-300 px-4 md:px-0">
    <span class="uppercase font-bold">Projects</span>
    <section class="flex flex-row-reverse gap-2">
     <LoaderContent v-if="isLoading" :count="10" class="grow py-8 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl  mx-auto z-50" />
     <div v-else class="grow py-8 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl  mx-auto z-50">
-        <Card v-for="item in Projects.slice(pagination.start,pagination.end)" :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.link"/>
+        <Card v-for="item in Projects.slice(pagination.start,pagination.end)" :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.label"/>
     </div>
-    <div class="flex h-[70vh]"><span class="w-[12em]">Filter</span></div>
+    <div class="hidden lg:flex h-[70vh]"><span class="w-[12em]">Filter</span></div>
    </section>
    <div class="w-full flex items-end justify-end">
     <button v-if="pagination.start > 0" class="mr-6" @click="pagination.start-=24; pagination.end-=24;">Prev</button>

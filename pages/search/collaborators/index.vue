@@ -15,6 +15,7 @@
 <template>
   <div class="max-w-screen-xl mx-auto text-gray-800 dark:text-gray-300">
    <span class="uppercase font-bold">Collaborators</span>
+   
    <LoaderContent v-if="isLoading" :count="10" class="p-5" />
    <div v-else class="py-8 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl w-100 mx-auto z-50">
         <Card v-for="item in About" :label="item.label" :image="item.image" :desc="item.desc" :link="item.link"/>
