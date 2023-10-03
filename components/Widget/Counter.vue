@@ -20,5 +20,5 @@
 </script>
 
 <template>
-    <div class="counter font-bold text-xl text-gray-900 dark:text-gray-200"  :data-target="value"></div>
+    <div class="counter font-bold text-sm md:text-xl text-gray-900 dark:text-gray-200"  :data-target="value"></div>
 </template>

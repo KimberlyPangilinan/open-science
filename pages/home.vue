@@ -27,8 +27,8 @@
         <CardTransparent value="1093" label="Collaborators" @click="navigateTo('/search/collaborators')"/>
       </div>
 
-    <LoaderContent v-if="isLoading" :count="10" class="p-5" />
-    <div v-else class="py-8 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl w-100 mx-auto z-50">
+    <LoaderContent v-if="isLoading" :count="4" class="p-5" />
+    <div v-else class="py-8 flex flex-wrap items-center justify-center gap-2 max-w-screen-xl w-100 mx-auto z-50">
         <Card v-for="item in About" :label="item.label" :image="item.image" :desc="item.desc" :link="item.link"/>
     </div>
 

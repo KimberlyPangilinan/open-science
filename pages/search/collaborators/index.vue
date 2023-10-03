@@ -14,7 +14,7 @@
 
 <template>
   <div class="max-w-screen-xl mx-auto text-gray-800 dark:text-gray-300">
-   <span class="uppercase font-bold">Collaborators</span>
+    <h1 class="uppercase font-bold px-8 xl:px-0">COLLABORATORS</h1>
    
    <LoaderContent v-if="isLoading" :count="10" class="p-5" />
    <div v-else class="py-8 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl w-100 mx-auto z-50">
