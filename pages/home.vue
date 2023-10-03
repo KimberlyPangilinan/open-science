@@ -1,6 +1,7 @@
 <script setup>
   import { Icon } from '@iconify/vue';
   import { About } from '../composables/constants';
+  
   definePageMeta({
     middleware: "auth"
   })

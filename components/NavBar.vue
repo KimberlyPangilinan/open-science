@@ -28,7 +28,7 @@
 </script>
 
 <template>
-  <header class="bg-white shadow dark:bg-gray-900 sticky top-0 z-20">
+  <header class="bg-white shadow dark:bg-gray-900 sticky top-0 z-[99]">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <NuxtLink to="https://Openapp.com/" class="flex items-center gap-2">
         <Icon icon="logos:sensu-icon" width="30" height="30"/>
