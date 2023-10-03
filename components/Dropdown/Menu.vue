@@ -1,3 +1,25 @@
+<script setup>
+import { ref  } from 'vue';
+defineProps(['title', 'icon'])
+
+
+const isOpen = ref(false);
+const { emit } = defineEmits();
+
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const handleClick = (item) => {
+  emit('handleClick', item);
+  closeDropdown(); 
+};
+
+const closeDropdown = () => {
+ // isOpen.value = false;
+};
+</script>
+
 <template>
     <div class="relative inline-block">
       <button class="border-[#4848482a] text-[#48484863]   border-2 border-spacing-1 dark:text-[#ffffff9c] dark:border-[#ffffff6a] rounded-full" @click="toggleDropdown" :title="title" >
@@ -10,27 +32,6 @@
     <Backdrop v-show=" isOpen"  @handleClick="isOpen=false" />
   </template>
   
-  <script setup>
-    import { ref  } from 'vue';
-    defineProps(['title', 'icon'])
-  
-  
-    const isOpen = ref(false);
-    const { emit } = defineEmits();
-  
-    const toggleDropdown = () => {
-      isOpen.value = !isOpen.value;
-    };
-  
-    const handleClick = (item) => {
-      emit('handleClick', item);
-      closeDropdown(); 
-    };
-  
-    const closeDropdown = () => {
-     // isOpen.value = false;
-    };
-  </script>
-  
+
   
   

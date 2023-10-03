@@ -1,3 +1,7 @@
+<script setup>
+  import { Icon } from '@iconify/vue';
+</script>
+
 <template>
   <header class="bg-white shadow dark:bg-gray-900 sticky top-0 z-20">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -19,10 +23,10 @@
     <div class="items-center justify-between hidden w-full md:flex md:w-auto" >
       <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-          <NuxtLink to="main" class="py-2 px-4 text-white" aria-current="page">Home</NuxtLink>
+          <NuxtLink to="/home" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/" class=" py-2 px-4 text-gray-900 dark:text-gray-100 rounded ">About</NuxtLink>
+          <NuxtLink to="/search" class=" py-2 px-4 text-gray-900 dark:text-gray-100">About</NuxtLink>
         </li>
 
       </ul>
@@ -53,19 +57,11 @@
         </ul>
       </DropdownMenu>
     </div>
-  </div>
-    
+    </div>
   </header>
-  
-
 </template>
 <style scoped>
-.router-link-active {
- color:  #73cc58;
-}
+  .router-link-active {
+  color:  #73cc58;
+  }
 </style>
-<script setup>
-import { Icon } from '@iconify/vue';
-
-
-</script>

@@ -8,7 +8,6 @@
             <div class="w-[100%] rounded-t-lg h-[10em] md:h-[180px] object-cover bg-slate-300 dark:bg-gray-800"></div>
         </a>
         <div class="p-5 h-[8em]">
-           
         </div>
         </div>
     </div>
