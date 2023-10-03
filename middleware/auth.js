@@ -6,7 +6,7 @@ export default async function defineNuxtRouteMiddleware(to, from){
     const auth = localStorage.getItem("auth")
 
     if( auth == null ){
-        return
+        return 
     }
  
   }

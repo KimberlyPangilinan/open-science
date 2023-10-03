@@ -51,9 +51,25 @@
           <NuxtLink to="/home" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/search" class=" py-2 px-4 text-gray-900 dark:text-gray-100">Browse</NuxtLink>
-          <NuxtLink to="/" class=" py-2 px-4 text-gray-900 dark:text-gray-100">About</NuxtLink>
+          <NuxtLink to="/search" class=" py-2 px-4 text-gray-900 dark:text-gray-100">About</NuxtLink>
         </li>
+        <DropdownMenu title="Menu" >
+        <template v-slot:button>
+          <li>
+          <NuxtLink class=" py-2 px-4 text-gray-900 dark:text-gray-100">Browse</NuxtLink>
+        </li> 
+        </template>
+   
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <a @click="navigateTo('/search/projects')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Projects</a>
+          </li>
+          <li>
+            <a @click="navigateTo('/search/collaborators')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Collaborators</a>
+          </li>
+        </ul>
+      </DropdownMenu>
+       
 
       </ul>
     </div>
@@ -76,14 +92,11 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-          </li>
-          <li>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" @click="handleLogout">Sign out</a>
           </li>
         </ul>
       </DropdownMenu>
-      <button v-else @click="isOpen= !isOpen">Login</button>
+      <ButtonPrimary @handleClick="isOpen= !isOpen" v-else>Login</ButtonPrimary>
       </div>
     </div>
       <!-- Dropdown menu -->

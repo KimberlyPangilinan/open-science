@@ -3,7 +3,7 @@
     
     const input = ref('')
     const handleSubmit = () => {
-        navigateTo(`/search/${input.value}`)
+        navigateTo(`/search/projects/${input.value}`)
         console.log(input.value)
     }
 </script>
