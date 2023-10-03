@@ -21,7 +21,7 @@
    <h1 class="uppercase font-bold px-8 xl:px-0">Projects</h1>
    <div class="flex flex-row-reverse gap-2">
     <LoaderContent v-if="isLoading" :count="10"  />
-    <div v-else class="grow py-8 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl  mx-auto ">
+    <div v-else class="grow py-8 px-8 xl:px-0 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl  mx-auto ">
         <Card v-for="item in Projects.slice(pagination.start,pagination.end)" :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.label"/>
     </div>
     <div class="hidden xl:flex h-[70vh]"><span class="w-[12em]">Filter</span></div>
