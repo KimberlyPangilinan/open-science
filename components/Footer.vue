@@ -14,8 +14,8 @@
                     <li>
                         <a href="#" class="mr-4 hover:underline md:mr-6 ">Browse</a>
                     </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">Projects</a>
+                    <li @click="navigateTo('/search/projects')">
+                        <span class="mr-4 hover:underline md:mr-6">Projects</span>
                     </li>
                     <li>
                         <a href="#" class="mr-4 hover:underline md:mr-6 ">Collaborators</a>

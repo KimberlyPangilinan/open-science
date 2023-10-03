@@ -22,9 +22,9 @@
     <Banner/>
       <div class="flex flex-wrap gap-8 max-w-screen-xl mx-auto px-8 justify-around">
         <CardTransparent value="102" label="Countries represented" />
-        <CardTransparent value="1482" label="Open Projects" @click="navigateTo('/projects')"/>
+        <CardTransparent value="1482" label="Open Projects" @click="navigateTo('/search/projects')"/>
         <CardTransparent value="1093" label="Open Science"/>
-        <CardTransparent value="1093" label="Collaborators" @click="navigateTo('/collaborators')"/>
+        <CardTransparent value="1093" label="Collaborators" @click="navigateTo('/search/collaborators')"/>
       </div>
 
     <LoaderContent v-if="isLoading" :count="10" class="p-5" />
