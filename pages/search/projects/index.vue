@@ -1,36 +1,55 @@
 <script setup>
+  import { Icon } from '@iconify/vue';
   import { Projects } from '../composables/constants';
-  const route = useRoute()
+  
+  const { $toast } = useNuxtApp();
   const isLoading = ref(true)
-    onMounted(() => {
-    const auth =localStorage.getItem('auth')
+  onMounted(() => {
+    getProject()
+    getTotalRequests()
     setTimeout(() => {
       isLoading.value= false
-    //  navigateTo('/home');
     }, 2000);
   })
-  //const { data: mountain } = await useFetch(`https://api.nuxtjs.dev/mountains/${route.params.slug}`)
-  const pagination = ref({
-    start: 0,
-    end:24
-  })
+
+  const item = ref(1);
+  
+  const getProject = () => {
+    if (Projects.length > 0) {
+      const randomIndex = Math.floor(Math.random() * Projects.length);
+      item.value = Projects[randomIndex];
+    }
+  }
+  
+  const handleIgnore = () =>{
+   getProject()
+  }
+
+
+
+  const totalRequests = ref(0)
+  const getTotalRequests = () => {
+    
+  }
+  const limitReached = ref(false)
+  const handleApply = () =>{
+    if (totalRequests.value >= 5){
+      limitReached.value=true
+      return
+    }
+    console.log(totalRequests.value)
+    totalRequests.value+=1
+    getProject()
+    $toast.success("Your request has been sent successfully")
+  }
 </script>
 
 <template>
-  <section class="max-w-screen-xl mx-auto text-gray-800 dark:text-gray-300 px-4 md:px-0">
-   <h1 class="uppercase font-bold px-8 xl:px-0">Projects</h1>
-   <div class="flex flex-row-reverse gap-2">
-    <LoaderContent v-if="isLoading" :count="10"  />
-    <div v-else class="grow py-8 px-8 xl:px-0 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl  mx-auto ">
-        <Card v-for="item in Projects.slice(pagination.start,pagination.end)" :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.label"/>
-    </div>
-    <div class="hidden xl:flex h-[70vh]"><span class="w-[12em]">Filter</span></div>
-   </div>
-   <div class="w-full flex items-end justify-end">
-    <button v-if="pagination.start > 0" class="mr-6" @click="pagination.start-=24; pagination.end-=24;">Prev</button>
-    <button v-if="pagination.end < Projects.length" class="mr-6" @click="pagination.start+=24; pagination.end+=24;">Next</button>
-   </div>
- 
-  
-  </section>
+  <div class="max-w-screen-xl mx-auto flex justify-between px-4 text-gray-800 dark:text-gray-300">
+          <CardProject :label="item.label" :categories="item.categories" :image="item.image" :collaborators="item.collaborators" :desc="item.desc" :link="item.label"/>
+  </div>
+  <div class="absolute bottom-[6em] right-[10%] w-full flex items-end justify-end">
+    <button class="mr-6 text-gray-100 rounded-full bg-gray-300 p-4"  @click="handleIgnore"><Icon icon="ph:x" /></button>
+    <button class="mr-6 text-gray-100 rounded-full bg-custom-primary p-4 disabled:bg-green-200" :disabled="limitReached" @click="handleApply"><Icon icon="ph:check"/></button>
+  </div>
 </template>

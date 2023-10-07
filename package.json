@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^1.5.1",
     "vue-social-sharing": "^4.0.0-alpha4",
+    "vue-toastification": "^2.0.0-rc.5",
     "vue-socialmedia-share": "^1.0.1"
   }
 }
