@@ -31,7 +31,11 @@
         <Card 
           class="w-full"
           v-for="item in Projects.slice(pagination.start,pagination.end)" 
-          :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.label"/>
+          :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.label">
+          <ButtonPrimary class="hidden md:flex" @handle-click="navigateTo(`/search/projects/${link}`)">
+                    Read more
+          </ButtonPrimary>
+        </Card>
     </div>
     <div class="hidden xl:flex flex-col gap-2 h-[70vh]"><span class="w-[12em]"></span>
     <WidgetFilter/>

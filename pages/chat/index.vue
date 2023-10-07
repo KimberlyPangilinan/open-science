@@ -79,7 +79,7 @@
 
 .chat-area {
 /*   border: 1px solid #ccc; */
-  background: white;
+  background: [#f4f4f4];
   height: 50vh;
   padding: 1em;
   overflow: auto;
@@ -96,7 +96,7 @@
 }
 .message-out {
   background: #407FFF;
-  color: white;
+  color: [#f4f4f4];
   margin-left: 50%;
 }
 .message-in {

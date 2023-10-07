@@ -3,11 +3,11 @@
     defineProps(["image","label","desc","link","categories","collaborators"])
 </script>
 <template>
-    <div class="flex flex-col w-full min-h-[74vh] bg-white  rounded-lg shadow dark:bg-gray-800 md:flex-row">
+    <div class="flex flex-col w-full min-h-[74vh] bg-[#f4f4f4]  rounded-lg shadow dark:bg-gray-800 md:flex-row">
         <img class="rounded-t-lg w-[100%] max-w-none max-h-[24vh] md:max-h-none md:h-[80vh] md:max-w-[45vw] md:w-[45vw] object-cover" :src="image" alt="" />
         <div class="p-4 md:p-12  flex flex-col gap-2">
             <div>
-                <h2 class="w-full justify-between mb-2 flex gap-2 items-center font-bold text-gray-900 dark:text-white truncate">
+                <h2 class="w-full justify-between mb-2 flex gap-2 items-center font-bold text-gray-900 dark:text-[#f4f4f4] truncate">
                 {{label}}
                 <ShareNetwork
                 v-if="link"
@@ -32,8 +32,8 @@
                    
                     <p class="text-xs mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3 ">{{desc}}</p>
                     <div class="flex -space-x-4 justify-end">
-                        <img  v-for="item in collaborators" class="w-8 h-8 border-2 border-white rounded-full dark:border-gray-800" :src="item.image" alt="">
-                        <a v-if="collaborators" class="flex items-center justify-center w-8 h-8 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">+99</a>
+                        <img  v-for="item in collaborators" class="w-8 h-8 border-2 border-[#f4f4f4] rounded-full dark:border-gray-800" :src="item.image" alt="">
+                        <a v-if="collaborators" class="flex items-center justify-center w-8 h-8 text-xs font-medium text-[#f4f4f4] bg-gray-700 border-2 border-[#f4f4f4] rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">+99</a>
                     </div>
                 </article> 
                 <header>

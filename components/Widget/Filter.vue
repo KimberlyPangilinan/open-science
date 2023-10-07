@@ -43,8 +43,8 @@ const isOpen = ref(true)
               <div v-show="isOpen" class="pt-6" id="filter-section-mobile-0">
                 <div class="space-y-6">
                   <div class="flex items-center">
-                    <input id="filter-mobile-color-0" name="color[]" value="white" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">White</label>
+                    <input id="filter-mobile-color-0" name="color[]" value="[#f4f4f4]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">[#f4f4f4]</label>
                   </div>
                   <div class="flex items-center">
                     <input id="filter-mobile-color-1" name="color[]" value="beige" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">

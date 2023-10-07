@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[100vw] h-[100vh]  bg-white dark:bg-gray-900 flex items-center justify-center">
+    <div class="w-[100vw] h-[100vh]  bg-[#f4f4f4] dark:bg-gray-900 flex items-center justify-center">
         <div class="boxes">
     <div class="box">
         <div></div>

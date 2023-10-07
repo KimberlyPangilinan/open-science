@@ -45,7 +45,7 @@ const filterSkills = () => {
 
 <template>
   <div class="flex items-center justify-center fixed inset-0 w-screen h-screen bg-[#e9e9e96e] z-50">
-    <div class="flex flex-col items-center justify-between gap-3  min-h-[60vh] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] px-6 py-8 rounded-sm bg-white dark:bg-gray-800 shadow-md text-center">
+    <div class="flex flex-col items-center justify-between gap-3  min-h-[60vh] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] px-6 py-8 rounded-sm bg-[#f4f4f4] dark:bg-gray-800 shadow-md text-center">
       <div class="font-bold text-sm mb-4  flex justify-between w-[40vw]">
         <h2 class="flex flex-col gap-2 text-left font-bold">Add your Skills
           <span class="text-xs font-normal text-gray-700">Adding skills is a powerful way to enhance your marketability </span>
@@ -66,7 +66,7 @@ const filterSkills = () => {
           <span @click="addSkill = !addSkill" v-show="!addSkill" class="w-30 flex items-center  hover:bg-blue-200 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-600 dark:text-blue-400 border border-blue-400 ">Add skill <Icon icon="ion:add-outline" /></span>
           <div v-show="addSkill">
             <input
-            class="px-4 py-2 bg-transparent border outline-none border-gray-300 text-gray-900 text-sm rounded-lg dark:text-white" 
+            class="px-4 py-2 bg-transparent border outline-none border-gray-300 text-gray-900 text-sm rounded-lg dark:text-[#f4f4f4]" 
             type="text" v-model="skill" title="Skill" list="skills-list" @input="filterSkills" placeholder="add skill"
             />
             <button class="text-blue-800 "><Icon icon="ion:add-outline" /></button>

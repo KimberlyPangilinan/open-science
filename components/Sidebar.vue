@@ -18,10 +18,10 @@
    
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
-            <a @click="navigateTo('/search/projects')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Projects</a>
+            <a @click="navigateTo('/search/projects')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-[#f4f4f4]">Projects</a>
           </li>
           <li>
-            <a @click="navigateTo('/search/collaborators')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Collaborators</a>
+            <a @click="navigateTo('/search/collaborators')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-[#f4f4f4]">Collaborators</a>
           </li>
         </ul>
       </DropdownMenu>
