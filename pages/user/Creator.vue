@@ -8,6 +8,7 @@
  const modalAdd= ref(false);
  const modalUpdate= ref(false);
 
+ const state=ref(false)
 const project = ref({
     title:"",
     description:''
@@ -40,20 +41,43 @@ const handleSubmit=()=>{
     </div>
     </div>
     <Modal>
-        <div class="flex flex-col flex-wrap gap-4 w-[100%]">
-          <div class="grow">
-            <FormInput title="Project Title" v-model="title" class="w-full"/>
+        <form @submit.prevent="" class="flex flex-col flex-wrap gap-4 w-[100%]">
+          <h2>Add New Project</h2>  
+          <div class="flex gap-4">
+            <div>
+                <div class="grow">
+                    <FormInput type="text" title="Project Title" v-model="project.title" class="w-full" :required="true"/>
+                </div>
+                <div class="grow flex flex-col gap-4 md:flex-row">
+                    <div class="w-full flex flex-col gap-2">
+                        <label for="email" class="text-left text-xs font-medium text-gray-600 dark:text-[#f4f4f4]">Description</label>
+                        <textarea type="text" title="Description" v-model="project.description" required="true" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-[#f4f4f4]"></textarea>
+                    </div>
+                </div>
+                <div class="grow flex flex-col gap-4 md:flex-row">
+                    <FormInput title="Start Date" type="month"/>
+                    <FormInput title="End Date" type="month"/>
+                </div>
+            </div>
+            <div>
+                <div class="grow">
+                 <h2>Collaborators</h2>
+                </div>
+                <div class="grow flex flex-col gap-4 md:flex-row">
+                    <div class="w-full flex flex-col gap-2">
+                        <label for="email" class="text-left text-xs font-medium text-gray-600 dark:text-[#f4f4f4]">Description</label>
+                        <textarea type="text" title="Description" v-model="project.description" required="true" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-[#f4f4f4]"></textarea>
+                    </div>
+                </div>
+                <div class="grow flex flex-col gap-4 md:flex-row">
+                    <FormInput title="Start Date" type="month"/>
+                    <FormInput title="End Date" type="month"/>
+                </div>
+            </div>
           </div>
-          <div class="grow flex flex-col gap-4 md:flex-row">
-            <FormInput type="" :disabled="" title="Description" v-model="description"/>
-            <FormInput/>
-          </div>
-          <div class="grow flex flex-col gap-4 md:flex-row">
-            <FormInput title=""/>
-            <FormInput/>
-          </div>
-          
-        </div>
+
+          <ButtonState :state="state" class="bg-custom-primary">Save Project</ButtonState>
+        </form>
     </Modal>
 </template>
 <style scoped>
