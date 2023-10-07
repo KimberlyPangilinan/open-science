@@ -1,5 +1,5 @@
 <script setup>
-  import { About } from '../composables/constants';
+  import { Projects } from '../composables/constants';
   const route = useRoute()
   const isLoading = ref(true)
     onMounted(() => {
@@ -18,7 +18,9 @@
    
    <LoaderContent v-if="isLoading" :count="10" class="p-5" />
    <div v-else class="py-8 px-8 xl:px-0 flex flex-wrap items-center justify-center gap-4 max-w-screen-xl w-100 mx-auto z-50">
-        <Card v-for="item in About" :label="item.label" :image="item.image" :desc="item.desc" :link="item.link"/>
+        <CardUser 
+          class="w-full  sm:w-[40%] md:w-[24%] "
+          v-for="item in Projects" :label="item.label" :image="item.image" :desc="item.desc" :link="item.link" :categories="item.categories"/>
     </div>
   </div>
 </template>

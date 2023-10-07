@@ -11,12 +11,16 @@
       localStorage.removeItem('auth')
       $toast.success("Logout successfully")
       navigateTo('/login')
-    }, 2000);
-    
+    }, 2000); 
   }
 
-</script>
+  const user = ref({
+    avatar:'https://www.pngkit.com/png/detail/108-1082173_male-profile-face.png',
+    name:'Michael Dela Cruz',
+    email:'michael.dc@gmail.com'
+  })
 
+</script>
 <template>
   <header class="bg-white shadow dark:bg-gray-900 sticky top-0 z-[99]">
     <div class="w-full md:max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -52,25 +56,31 @@
       <div class="hidden md:flex">    
       <DropdownMenu title="Menu">
         <template v-slot:button>
-          <Icon icon="mingcute:user-4-fill"  width="20" height="20"/> 
+          <img v-if="user.avatar" :src="user.avatar" width="24" height="24" class="object-cover rounded-full border-2 border-gray-300"/>
+          <Icon v-else icon="mingcute:user-4-fill"  width="20" height="20"/> 
         </template>
         <div class="px-4 py-3">
-            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-            <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@Openapp.com</span>
+            <span class="block text-sm text-gray-900 dark:text-white">{{user.name}}</span>
+            <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{user.email}}</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
-          <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a></li>
-          <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" @click="handleLogout">Sign out</a></li>
+          <li 
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+            @click="navigateTo('/user')">
+            Dashboard
+          </li>
+          <li 
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" 
+            @click="handleLogout">
+            Sign out
+          </li>
         </ul>
       </DropdownMenu>
-     
       </div>
     </div>
     </div>
   </header>
   <Sidebar v-if="menuOpen" @handleClick="menuOpen= false" class="flex md:hidden"/>
- 
-  
   <Backdrop v-show=" isOpen || menuOpen"  @handleClick="isOpen=false, menuOpen = false" />
 </template>
 <style scoped>
