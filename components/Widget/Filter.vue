@@ -10,16 +10,16 @@ const isOpen = ref(true)
           </h3>
             <ul role="list" class="px-2 py-3 font-medium">
               <li>
-                <a href="#" class="block px-2 py-3">Totes</a>
+                <a href="#" class="block px-2 py-3">Category one</a>
               </li>
               <li>
-                <a href="#" class="block px-2 py-3">Backpacks</a>
+                <a href="#" class="block px-2 py-3">Category two</a>
               </li>
               <li>
-                <a href="#" class="block px-2 py-3">Travel Bags</a>
+                <a href="#" class="block px-2 py-3">Category three</a>
               </li>
               <li>
-                <a href="#" class="block px-2 py-3">Hip Bags</a>
+                <a href="#" class="block px-2 py-3">Category four</a>
               </li>
             </ul>
             <div class="border-t border-gray-200 md:border-gray-700 px-4 py-6">

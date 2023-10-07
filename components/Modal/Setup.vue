@@ -1,5 +1,6 @@
 <script setup>
 import { Icon } from '@iconify/vue';
+defineEmits(["handleClick"])
 const skill = ref('');
 const { $toast } = useNuxtApp();
 const skills = ref([]);
@@ -14,11 +15,13 @@ const filteredSkills = computed(() => {
 const handleSaveSkills = () =>{
   localStorage.setItem('skills', JSON.stringify(skills));
   console.log("saved")
+
   $toast.success("Skills saved successfully")
   
 }
 const handleAddSkill = () => {
   skills.value.push(skill.value);
+  skill.value=''
   console.log(`${skills.value} skill added`);
 };
 
@@ -69,11 +72,11 @@ const filterSkills = () => {
             <button class="text-blue-800 "><Icon icon="ion:add-outline" /></button>
             <datalist id="skills-list">
               <option v-for="option in filteredSkills" :value="option" class="w-[90px] bg-red-100"></option>
-            </datalist>
+            </datalist> 
           </div>
          
         </div>
-        <ButtonState :state="isLoading" @handleClick="handleSaveSkills">Save</ButtonState>
+        <ButtonState :state="isLoading" @handleClick="handleSaveSkills(); $emit('handleClick')">Save</ButtonState>
         
       </form>
       

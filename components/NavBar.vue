@@ -66,14 +66,12 @@
      
       </div>
     </div>
-      <!-- Dropdown menu -->
-     
     </div>
   </header>
   <Sidebar v-if="menuOpen" @handleClick="menuOpen= false" class="flex md:hidden"/>
  
   
-  <Backdrop v-show=" isOpen || menuUpen"  @handleClick="isOpen=false, menuOpen = false" />
+  <Backdrop v-show=" isOpen || menuOpen"  @handleClick="isOpen=false, menuOpen = false" />
 </template>
 <style scoped>
   .router-link-active {

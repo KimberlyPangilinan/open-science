@@ -13,11 +13,26 @@
       password:'',
       agree:''
   })  
+  const signUp=ref({
+      email:'',
+      password:'',
+      confirmPassword:'',
+      agree:''
+  })  
   const loading=ref({
     email:false,
     google:false
   })
   const handleLogin = () => {
+    loading.value.email= true
+    setTimeout(() => {
+      loading.value.email= false
+      localStorage.setItem('auth',true) 
+      navigateTo("/home")
+      $toast.success("Login successfully")
+    }, 2000); 
+  }
+  const handleSignUp = () => {
     loading.value.email= true
     setTimeout(() => {
       loading.value.email= false
@@ -51,14 +66,14 @@
           <form class="space-y-6" @submit.prevent="handleLogin()">
             <h5 class="font-medium text-gray-900 dark:text-white">Sign in to Open App</h5>
 
-              <FormInput type="email" v-model="login.email" title="Email"/>
-              <FormInput type="password" v-model="login.password" title="Password" placeholder="••••••••"/>
+              <FormInput type="email" v-model="login.email" title="Email" required/>
+              <FormInput type="password" v-model="login.password" title="Password" placeholder="••••••••" required/>
             
               <div class="flex flex-col items-start text-xs">
                   <a href="#" class="ml-auto text-blue-700 hover:underline dark:text-blue-500">Forgot Password?</a>
                   <div class="flex items-start">
                     <div class="flex justify-start gap-2 py-4">
-                      <input type="checkbox" /> <span class="text-gray-800 dark:text-gray-200">I agree to the privacy notice and data processing agreement</span>
+                      <input type="checkbox" v-model="login.agree" required/> <span class="text-gray-800 dark:text-gray-200">I agree to the privacy notice and data processing agreement</span>
                     </div>
                   </div>
                 
@@ -66,32 +81,30 @@
               <ButtonState :state="loading.email" type="submit" class="w-full ">Login to your account</ButtonState>
               <ButtonState :state="loading.google" type="submit" class="w-full bg-blue-300 disabled:bg-blue-100">Sign in with Google</ButtonState>
               <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
-                  Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                  Not registered? <a href="#" @click="loginModal = false;signupModal = true" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
               </div>
           </form>
       </template>
     </Modal>
     <Modal v-if="signupModal" @handleClick="signupModal= false">
       <template v-slot:buttons>
-          <form class="space-y-6" @submit.prevent="handleLogin()">
+          <form class="space-y-6" @submit.prevent="handleSignUp()">
             <h5 class="font-medium text-gray-900 dark:text-white">Sign up to Open App</h5>
 
-              <FormInput type="email" v-model="login.email" title="Email"/>
-              <FormInput type="password" v-model="login.password" title="Password" placeholder="••••••••"/>
-            
+              <FormInput type="email" v-model="signUp.email" title="Email" required/>
+              <FormInput type="password" v-model="signUp.password" title="Password" placeholder="••••••••" required/>
+              <FormInput type="password" v-model="signUp.confirmPassword" title="Confirm Password" placeholder="••••••••" required/>
               <div class="flex flex-col items-start text-xs">
-                  <a href="#" class="ml-auto text-blue-700 hover:underline dark:text-blue-500">Forgot Password?</a>
                   <div class="flex items-start">
                     <div class="flex justify-start gap-2 py-4">
-                      <input type="checkbox" /> <span class="text-gray-800 dark:text-gray-200">I agree to the privacy notice and data processing agreement</span>
+                      <input type="checkbox" v-model="signUp.agree" required /> <span class="text-gray-800 dark:text-gray-200">I agree to the privacy notice and data processing agreement</span>
                     </div>
-                  </div>
-                
+                  </div>  
               </div>
               <ButtonState :state="loading.email" type="submit" class="w-full ">Sign up your account</ButtonState>
               <ButtonState :state="loading.google" type="submit" class="w-full bg-blue-300 disabled:bg-blue-100">Sign up with Google</ButtonState>
               <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
-                  Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                  Already registered? <a href="#" @click="signupModal = false;loginModal = true" class="text-blue-700 hover:underline dark:text-blue-500">Login your account</a>
               </div>
           </form>
       </template>

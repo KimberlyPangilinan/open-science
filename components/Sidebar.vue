@@ -4,13 +4,10 @@
 </script>
 
 <template>
-    <div  id="settings" class="flex md:hidden  flex-col gap-8 px-8 py-4 w-full sticky right-0 top-16 z-[50] bg-slate-100 dark:bg-gray-900">
+    <div  id="settings" class="flex md:hidden  flex-col gap-8 px-8 py-4 w-full sticky right-0 top-16 z-[50] bg-slate-50 dark:bg-gray-900">
         <ul class="flex  font-medium text-xs ">
         <li>
           <NuxtLink to="/home" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Home</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/search" class=" py-2 px-4 text-gray-900 dark:text-gray-100">About</NuxtLink>
         </li>
         <DropdownMenu title="Menu" >
         <template v-slot:button>
