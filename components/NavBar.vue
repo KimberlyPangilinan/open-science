@@ -11,6 +11,7 @@
   const menuOpen=ref(false)
   const auth= ref('')
   const isOpen= ref(false)
+  const loading=ref(false)
   onMounted(() => {
     auth.value =localStorage.getItem('auth')
    
@@ -21,8 +22,13 @@
     return auth.value= false
   }
   const handleLogin = () => {
-    localStorage.setItem('auth',true) 
-    isOpen.value= false
+    loading.value= true
+    setTimeout(() => {
+      loading.value= false
+      localStorage.setItem('auth',true) 
+      isOpen.value= false
+    }, 2000);
+    
     return  auth.value= true
   }
 </script>
@@ -76,37 +82,12 @@
       <ButtonPrimary @handleClick="isOpen= !isOpen" v-else>Login</ButtonPrimary>
       </div>
     </div>
-      <!-- Dropdown menu -->
-     
     </div>
   </header>
   <Sidebar v-if="menuOpen" @handleClick="menuOpen= false" class="flex md:hidden"/>
-  <Modal v-if="isOpen" @handleClick="isOpen= false">
-    <template v-slot:buttons>
-    <form class="space-y-6" @submit.prevent="handleLogin">
-      <h5 class="font-medium text-gray-900 dark:text-white">Sign in to Open App</h5>
-
-        <FormInput type="email" v-model="login.email" title="Email"/>
-        <FormInput type="password" v-model="login.password" title="Password" placeholder="••••••••"/>
-      
-        <div class="flex flex-col items-start text-xs">
-            <a href="#" class="ml-auto text-blue-700 hover:underline dark:text-blue-500">Forgot Password?</a>
-            <div class="flex items-start">
-              <div class="flex justify-start gap-2 py-4">
-                <input type="checkbox" /> <span class="text-gray-800 dark:text-gray-200">I agree to the privacy notice and data processing agreement</span>
-              </div>
-            </div>
-           
-        </div>
-        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
-        <button type="button" class="text-white w-full  bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2">Sign up with Google<div></div></button>
-        <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
-            Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
-        </div>
-    </form>
-  </template>
-  </Modal>
-  <Backdrop v-show=" isOpen || menuUpen"  @handleClick="isOpen=false, menuOpen = false" />
+  <ModalLogin v-if="isOpen" @handleClick="isOpen= false"/>
+  
+  <Backdrop v-show=" isOpen || menuOpen"  @handleClick="isOpen=false, menuOpen = false" />
 </template>
 <style scoped>
   .router-link-active {
