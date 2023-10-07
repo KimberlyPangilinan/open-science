@@ -2,9 +2,8 @@
 const isOpen = ref(true)
 </script>
 <template>
-        <form class="border border-gray-200 rounded-md lg:w-[20em] text-sm">
+        <form class="border border-gray-200 rounded-md lg:w-[12em] text-sm">
           <h3 class="">
-                <!-- Expand/collapse section button -->
                 <button type="button" class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500" aria-controls="filter-section-mobile-0" aria-expanded="false">
                   <span class="font-bold text-gray-900">Categories</span>
                 </button>

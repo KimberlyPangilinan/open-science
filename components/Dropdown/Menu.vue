@@ -22,7 +22,7 @@ const closeDropdown = () => {
 
 <template>
     <div class="relative inline-block">
-      <button class="flex items-center align-middle justify-center border-[#4848482a] text-[#48484863]   border  dark:text-[#ffffff9c] dark:border-[#ffffff6a] rounded-full" @click="toggleDropdown" :title="title" >
+      <button class="flex items-center align-middle justify-center  text-gray-300   dark:text-[#ffffff9c] dark:border-[#ffffff6a] rounded-full" @click="toggleDropdown" :title="title" >
       <slot name="button"></slot>
       </button>
       <div @click="closeDropdown" v-if="isOpen" class="absolute top-10 z-10 right-0 mt-2 w-[204px] bg-[#ffffffd0] divide-y divide-gray-100  shadow dark:bg-gray-700 dark:divide-gray-600 border rounded-lg text-black">

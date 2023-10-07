@@ -8,7 +8,7 @@
       agree:''
     }
   )  
-    const menuOpen=ref(false)
+  const menuOpen=ref(false)
   const auth= ref('')
   const isOpen= ref(false)
   onMounted(() => {
@@ -34,24 +34,14 @@
         <Icon icon="logos:sensu-icon" width="30" height="30"/>
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Open Site</span>
     </NuxtLink>
-    <!-- <nav class="items-center justify-between hidden w-full md:flex md:w-auto ">
-      <div class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-       </div>
-    </nav> -->
 
     <button type="button" @click="menuOpen= !menuOpen" class="flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
+      <Icon icon="ion:menu" />
     </button>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto" >
       <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
           <NuxtLink to="/home" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Home</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/search/projects" class=" py-2 px-4 text-gray-900 dark:text-gray-100">For You</NuxtLink>
         </li>
         <DropdownMenu title="Menu" >
         <template v-slot:button>
@@ -61,19 +51,13 @@
         </template>
    
         <ul class="py-2" aria-labelledby="user-menu-button">
-          <li>
-            <a @click="navigateTo('/search/projects/all')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Projects</a>
-          </li>
-          <li>
-            <a @click="navigateTo('/search/collaborators/')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Collaborators</a>
-          </li>
+          <li><a @click="navigateTo('/search/projects')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Projects</a></li>
+          <li><a @click="navigateTo('/search/collaborators/')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Collaborators</a></li>
         </ul>
       </DropdownMenu>
-       
-
       </ul>
     </div>
-    <div class="hidden md:flex gap-8 items-center align-middle text-gray-400">
+    <div class="hidden md:flex gap-8 items-center align-middle text-gray-300">
       <Icon class="hidden md:flex" v-show="auth" icon="jam:messages-f"  width="20" height="20"/> 
       <div class="hidden md:flex">    
       <DropdownMenu title="Menu" v-if="auth">
@@ -85,15 +69,8 @@
             <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@Openapp.com</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
-          <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" @click="handleLogout">Sign out</a>
-          </li>
+          <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a></li>
+          <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" @click="handleLogout">Sign out</a></li>
         </ul>
       </DropdownMenu>
       <ButtonPrimary @handleClick="isOpen= !isOpen" v-else>Login</ButtonPrimary>
@@ -134,6 +111,6 @@
 </template>
 <style scoped>
   .router-link-active {
-  color:  #73cc58;
+    color:  #73cc58;
   }
 </style>

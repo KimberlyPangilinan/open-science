@@ -3,10 +3,8 @@
     defineProps(["image","label","desc","link","categories","collaborators"])
 </script>
 <template>
-    <div @click="navigateTo(`projects/${link}`)" class="w-[1000%] sm:w-[40%] md:w-[40%] lg:w-[23%] max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
-        <a v-show="image" href="#" class=" max-h-100">
-            <img class="rounded-t-lg h-[10em] md:h-[180px] w-[100%] object-cover" :src="image" alt="" />
-        </a>
+    <div @click="navigateTo(`projects/${link}`)" class="w-[1000%] sm:w-[40%] lg:w-[23%] max-w-sm bg-white  rounded-lg shadow dark:bg-gray-800 ">
+        <img v-show="image" class="rounded-t-lg h-[10em] md:h-[180px] w-[100%] object-cover" :src="image" alt="" />
         <div class="p-5 space-y-2">
             <h5 class="mb-2 flex gap-2 items-center font-bold tracking-tight text-gray-900 dark:text-white truncate">{{label}}
                 <ShareNetwork
