@@ -1,20 +1,27 @@
 <script setup>
-  import { Icon } from '@iconify/vue';
-  import { About } from '../composables/constants';
-  definePageMeta({
+    import { Icon } from '@iconify/vue';
+    import { About } from '../composables/constants';
+
+    definePageMeta({
         layout: "dashboard",
     })
+
     const skill = ref('');
     const skills = ref([]);
+
     const isLoading = ref(false);
+
     const autocompleteOptions = ['JavaScript', 'Python', 'Java', 'C++', 'Vue.js', 'React', 'Node.js'];
+
     const addSkill = ref(false)
     const projectModal= ref(false)
+
     const filteredSkills = computed(() => {
-    return autocompleteOptions.filter(item =>
-        item.toLowerCase().includes(skill.value.toLowerCase())
-    );
+        return autocompleteOptions.filter(item =>
+            item.toLowerCase().includes(skill.value.toLowerCase())
+        );
     });
+    
     const modalAdd= ref(false);
     const modalUpdate= ref(false);
 

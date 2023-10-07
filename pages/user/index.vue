@@ -1,8 +1,9 @@
 <script setup>
-  definePageMeta({
+    definePageMeta({
         layout: "dashboard",
     })
 </script>
+
 <template>
-    fhfxghS
+    User dummy
 </template>
