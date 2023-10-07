@@ -1,36 +1,20 @@
 <script setup>
   import { Icon } from '@iconify/vue';
-
-  const login=ref(
-    {
-      email:'',
-      password:'',
-      agree:''
-    }
-  )  
+  const { $toast } = useNuxtApp();
   const menuOpen=ref(false)
-  const auth= ref('')
+
   const isOpen= ref(false)
   const loading=ref(false)
-  onMounted(() => {
-    auth.value =localStorage.getItem('auth')
-   
-  })
+ 
   const handleLogout = () => {
-    localStorage.removeItem('auth')
-    
-    return auth.value= false
-  }
-  const handleLogin = () => {
-    loading.value= true
     setTimeout(() => {
-      loading.value= false
-      localStorage.setItem('auth',true) 
-      isOpen.value= false
+      localStorage.removeItem('auth')
+      $toast.success("Logout successfully")
+      navigateTo('/login')
     }, 2000);
     
-    return  auth.value= true
   }
+
 </script>
 
 <template>
@@ -64,9 +48,9 @@
       </ul>
     </div>
     <div class="hidden md:flex gap-8 items-center align-middle text-gray-300">
-      <Icon class="hidden md:flex" v-show="auth" icon="jam:messages-f"  width="20" height="20"/> 
+      <Icon class="hidden md:flex"  icon="jam:messages-f"  width="20" height="20"/> 
       <div class="hidden md:flex">    
-      <DropdownMenu title="Menu" v-if="auth">
+      <DropdownMenu title="Menu">
         <template v-slot:button>
           <Icon icon="mingcute:user-4-fill"  width="20" height="20"/> 
         </template>
@@ -79,15 +63,17 @@
           <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" @click="handleLogout">Sign out</a></li>
         </ul>
       </DropdownMenu>
-      <ButtonPrimary @handleClick="isOpen= !isOpen" v-else>Login</ButtonPrimary>
+     
       </div>
     </div>
+      <!-- Dropdown menu -->
+     
     </div>
   </header>
   <Sidebar v-if="menuOpen" @handleClick="menuOpen= false" class="flex md:hidden"/>
-  <ModalLogin v-if="isOpen" @handleClick="isOpen= false"/>
+ 
   
-  <Backdrop v-show=" isOpen || menuOpen"  @handleClick="isOpen=false, menuOpen = false" />
+  <Backdrop v-show=" isOpen || menuUpen"  @handleClick="isOpen=false, menuOpen = false" />
 </template>
 <style scoped>
   .router-link-active {
