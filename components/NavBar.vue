@@ -52,7 +52,7 @@
       </ul>
     </div>
     <div class="hidden md:flex gap-8 items-center align-middle text-gray-300">
-      <Icon class="hidden md:flex"  icon="jam:messages-f"  width="20" height="20"/> 
+      <Icon class="hidden md:flex"  icon="jam:messages-f" @click="navigateTo('/chat/')" width="20" height="20"/> 
       <div class="hidden md:flex">    
       <DropdownMenu title="Menu">
         <template v-slot:button>
