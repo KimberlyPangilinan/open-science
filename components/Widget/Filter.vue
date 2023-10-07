@@ -2,13 +2,13 @@
 const isOpen = ref(true)
 </script>
 <template>
-        <form class="border border-gray-200 rounded-md lg:w-[12em] text-sm">
+        <form class="border border-gray-200 md:border-gray-700 rounded-md lg:w-[12em] text-sm text-gray-800 dark:text-gray-100">
           <h3 class="">
-                <button type="button" class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500" aria-controls="filter-section-mobile-0" aria-expanded="false">
-                  <span class="font-bold text-gray-900">Categories</span>
-                </button>
-              </h3>
-            <ul role="list" class="px-2 py-3 font-medium text-gray-900">
+            <button type="button" class="flex w-full items-center justify-between  px-2 py-3 " aria-controls="filter-section-mobile-0" aria-expanded="false">
+              <span class="font-bold ">Categories</span>
+            </button>
+          </h3>
+            <ul role="list" class="px-2 py-3 font-medium">
               <li>
                 <a href="#" class="block px-2 py-3">Totes</a>
               </li>
@@ -21,16 +21,12 @@ const isOpen = ref(true)
               <li>
                 <a href="#" class="block px-2 py-3">Hip Bags</a>
               </li>
-              <li>
-                <a href="#" class="block px-2 py-3">Laptop Sleeves</a>
-              </li>
             </ul>
-
-            <div class="border-t border-gray-200 px-4 py-6">
+            <div class="border-t border-gray-200 md:border-gray-700 px-4 py-6">
               <h3 class="-mx-2 -my-3 flow-root">
                 <!-- Expand/collapse section button -->
-                <button type="button" class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500" aria-controls="filter-section-mobile-0" aria-expanded="false">
-                  <span class="font-medium text-gray-900">Color</span>
+                <button type="button" class="flex w-full items-center justify-between px-2 py-3 " aria-controls="filter-section-mobile-0" aria-expanded="false">
+                  <span class="font-medium ">Date Issued</span>
                   <span class="ml-6 flex items-center">
                     <!-- Expand icon, show/hide based on section open state. -->
                     <svg @click="isOpen=true" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

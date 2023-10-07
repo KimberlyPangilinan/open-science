@@ -4,7 +4,7 @@
 </script>
 <template>
     <div class="flex flex-col w-full min-h-[74vh] bg-white  rounded-lg shadow dark:bg-gray-800 md:flex-row">
-        <img class="rounded-t-lg w-[100%] max-w-none max-h-[24vh] md:max-h-none md:max-w-[45vw] object-cover" :src="image" alt="" />
+        <img class="rounded-t-lg w-[100%] max-w-none max-h-[24vh] md:max-h-none md:h-[80vh] md:max-w-[45vw] md:w-[45vw] object-cover" :src="image" alt="" />
         <div class="p-4 md:p-12  flex flex-col gap-2">
             <div>
                 <h2 class="w-full justify-between mb-2 flex gap-2 items-center font-bold text-gray-900 dark:text-white truncate">
@@ -50,7 +50,7 @@
                     </span>
                 </article>      
                 <div class="flex justify-between items-center">
-                    <ButtonPrimary class="hidden md:flex" @handle-click="navigateTo(`projects/${link}`)">
+                    <ButtonPrimary class="hidden md:flex" @handle-click="navigateTo(`/search/projects/${link}`)">
                         Read more
                     </ButtonPrimary>
                 </div> 

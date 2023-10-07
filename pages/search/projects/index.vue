@@ -3,13 +3,10 @@
   import { Projects } from '../composables/constants';
   
   const { $toast } = useNuxtApp();
-  const isLoading = ref(true)
+
   onMounted(() => {
     getProject()
     getTotalRequests()
-    setTimeout(() => {
-      isLoading.value= false
-    }, 2000);
   })
 
   const item = ref(1);
@@ -54,8 +51,7 @@
         <button @click="navigateTo('/search/projects/list')" class="text-gray-300"><Icon icon="ic:round-view-list" width="30" height="30" /></button>
       </div>   
     </header>
-    <LoaderOne v-if="isLoading"  />
-    <transition name="slide-fade" mode="out-in" v-else>
+    <transition name="slide-fade" mode="out-in">
       <CardProject :key="item.label" :label="item.label" :categories="item.categories" :image="item.image" :collaborators="item.collaborators" :desc="item.desc" :link="item.label"/>
     </transition>
   </div>

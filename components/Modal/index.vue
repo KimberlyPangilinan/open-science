@@ -4,7 +4,6 @@
         <div class="font-bold text-sm mb-4 w-full flex justify-end">
             <slot> </slot> <span @click="$emit('handleClick')"><Icon icon="ph:x-bold" /></span>
         </div>
-       
         <div class="flex gap-4 py-2 justify-center w-[100%]">
            <slot name="buttons"></slot>
         </div>

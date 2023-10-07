@@ -82,7 +82,6 @@
   </header>
   <Sidebar v-if="menuOpen" @handleClick="menuOpen= false" class="flex md:hidden"/>
   <Modal v-if="isOpen" @handleClick="isOpen= false">
-    
     <template v-slot:buttons>
     <form class="space-y-6" @submit.prevent="handleLogin">
       <h5 class="font-medium text-gray-900 dark:text-white">Sign in to Open App</h5>
