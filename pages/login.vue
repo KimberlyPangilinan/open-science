@@ -3,17 +3,16 @@
 
   definePageMeta({
         middleware: 'guest',
-        layout: "custom",
+        layout: "empty",
     })
   const { $toast } = useNuxtApp();
-  const isOpen= ref(false)
-  const login=ref(
-    {
+  const loginModal=ref(false)
+  const signupModal=ref(false)
+  const login=ref({
       email:'',
       password:'',
       agree:''
-    }
-  )  
+  })  
   const loading=ref({
     email:false,
     google:false
@@ -26,7 +25,6 @@
       navigateTo("/home")
       $toast.success("Login successfully")
     }, 2000); 
-    
   }
 </script>
 <template>    
@@ -35,8 +33,8 @@
             <h1 class="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-3xl dark:text-white">We invest in the world’s potential</h1>
             <p class="mb-8 text-sm font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Saka ko na change design gawin mo muna. Insert your tagline. Here at Open App we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
             <div class="flex items-center justify-center gap-4">
-                 <ButtonPrimary @handleClick="isOpen= true" class="z-[90]" >Login</ButtonPrimary>
-                 <ButtonPrimary @handleClick="isOpen= true" class="z-[90] bg-transparent border-2 border-custom-primary text-custom-primary" >Sign Up</ButtonPrimary>
+                 <ButtonPrimary @handleClick="loginModal = true" class="z-[90]" >Login</ButtonPrimary>
+                 <ButtonPrimary @handleClick="signupModal = true" class="z-[90] bg-transparent border-2 border-custom-primary text-custom-primary" >Sign Up</ButtonPrimary>
             </div> 
         </div>
         <div class="flex flex-wrap gap-2 md:gap-8 max-w-screen-xl mx-auto px-4 md:px-8 justify-around">
@@ -48,7 +46,7 @@
         <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-gray-950 w-full h-[70vh] absolute top-0 left-0 z-0"></div>
     </section>
 
-    <Modal v-if="isOpen" @handleClick="isOpen= false">
+    <Modal v-if="loginModal" @handleClick="loginModal= false">
       <template v-slot:buttons>
           <form class="space-y-6" @submit.prevent="handleLogin()">
             <h5 class="font-medium text-gray-900 dark:text-white">Sign in to Open App</h5>
@@ -67,6 +65,31 @@
               </div>
               <ButtonState :state="loading.email" type="submit" class="w-full ">Login to your account</ButtonState>
               <ButtonState :state="loading.google" type="submit" class="w-full bg-blue-300 disabled:bg-blue-100">Sign in with Google</ButtonState>
+              <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
+                  Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+              </div>
+          </form>
+      </template>
+    </Modal>
+    <Modal v-if="signupModal" @handleClick="signupModal= false">
+      <template v-slot:buttons>
+          <form class="space-y-6" @submit.prevent="handleLogin()">
+            <h5 class="font-medium text-gray-900 dark:text-white">Sign up to Open App</h5>
+
+              <FormInput type="email" v-model="login.email" title="Email"/>
+              <FormInput type="password" v-model="login.password" title="Password" placeholder="••••••••"/>
+            
+              <div class="flex flex-col items-start text-xs">
+                  <a href="#" class="ml-auto text-blue-700 hover:underline dark:text-blue-500">Forgot Password?</a>
+                  <div class="flex items-start">
+                    <div class="flex justify-start gap-2 py-4">
+                      <input type="checkbox" /> <span class="text-gray-800 dark:text-gray-200">I agree to the privacy notice and data processing agreement</span>
+                    </div>
+                  </div>
+                
+              </div>
+              <ButtonState :state="loading.email" type="submit" class="w-full ">Sign up your account</ButtonState>
+              <ButtonState :state="loading.google" type="submit" class="w-full bg-blue-300 disabled:bg-blue-100">Sign up with Google</ButtonState>
               <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
                   Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
               </div>

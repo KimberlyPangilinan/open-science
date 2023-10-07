@@ -45,9 +45,6 @@
     <header class="flex flex-col gap-4 justify-between md:flex-row w-full">
       <h1 class="hidden md:flex uppercase font-bold px-8 xl:px-0">PROJECTS</h1>
       <div class="flex gap-2 "> 
-        <form @submit.prevent="" class="flex w-full ">
-          <input  type="text" v-model="search" placeholder="Search project..." class=" rounded-md border border-gray-200 dark:border-gray-600 outline-none bg-transparent px-6 py-2 text-xs"/>
-        </form> 
         <button @click="navigateTo('/search/projects/list')" class="text-gray-300"><Icon icon="ic:round-view-list" width="30" height="30" /></button>
       </div>   
     </header>

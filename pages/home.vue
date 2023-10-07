@@ -1,20 +1,25 @@
 <script setup>
-  import { Icon } from '@iconify/vue';
   import { About } from '../composables/constants';
 
   definePageMeta({
     middleware: "auth"
   })
   
-
   const isLoading = ref(true)
+  const setup = ref(false)
+
+  //to handle if maglalagay pa ba skills or not
   onMounted(() => {
-    const auth =localStorage.getItem('auth')
+    const skills=localStorage.getItem('skills') //change this function to get skills nung nakalogin
     setTimeout(() => {
       isLoading.value= false
-    //  navigateTo('/home');
+      if (skills == null){
+        setup.value=true
+      }
     }, 2000);
   })
+
+  
 </script>
 
 <template>
@@ -31,7 +36,6 @@
     <div v-else class="py-8  px-8 xl:px-0 flex flex-wrap items-center justify-center gap-2 max-w-screen-xl w-100 mx-auto z-50">
         <Card v-for="item in About" :label="item.label" :image="item.image" :desc="item.desc" :link="item.link" class="w-full  sm:w-[40%] md:w-[24%] "/>
     </div>
-
 </div>
-
+<ModalSetup v-show="setup" @handleClick="setup= false"/>
 </template>
