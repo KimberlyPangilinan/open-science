@@ -92,7 +92,7 @@
             </div>
             <div>
                 <div class="grow">
-                 <h2>Collaborators</h2>
+                 <h2 class="text-gray-800 dark:text-[#f4f4f4]">Collaborators</h2>
                 </div>
                 <form @submit.prevent="handleAddSkill"  class="flex border-b flex-col gap-4 py-2 justify-center w-[100%]">
                     <div class="w-full flex gap-2">

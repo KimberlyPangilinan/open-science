@@ -86,7 +86,7 @@
           </form>
       </template>
     </Modal>
-    <Modal v-if="signupModal" @handleClick="signupModal= false">
+    <Modal v-if="signupModal" @handleClick="signupModal= false" >
       <template v-slot:buttons>
           <form class="space-y-6" @submit.prevent="handleSignUp()">
             <h5 class="font-medium text-gray-900 dark:text-[#f4f4f4]">Sign up to Open App</h5>
