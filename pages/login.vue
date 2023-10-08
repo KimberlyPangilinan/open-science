@@ -94,7 +94,7 @@
               </div>   
           </div>
           <ButtonState :state="loading.email" type="submit" class="w-full ">Login to your account</ButtonState>
-          <ButtonState :state="loading.google" type="submit" class="w-full bg-blue-300 disabled:bg-blue-100">Sign in with Google</ButtonState>
+          <ButtonState :state="loading.google"  class="w-full bg-blue-300 disabled:bg-blue-100">Sign in with Google</ButtonState>
           
           <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
             Not registered? 
