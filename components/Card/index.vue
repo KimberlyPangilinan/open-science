@@ -20,9 +20,9 @@
                 <a href="#" class="mb-2 bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400 inline-flex items-center justify-center">{{ item }}</a>
             </span>
             <p class="text-xs mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3 ">{{desc}}</p>
-            <div class="flex justify-between items-center">
+            <div class="flex flex-col sm:flex-row justify-start md:justify-between items-start gap-1">
                 <header>
-                    <h3 class="flex flex-col gap-4 text-xs font-semibold opacity-40">COLLABORATORS NEEDED<hr/></h3>
+                    <h3 class="flex flex-col gap-4 text-xs font-semibold opacity-40">COLLABORATORS NEEDED</h3>
                 </header>
                 <article class="flex justify-between">
                     <div>

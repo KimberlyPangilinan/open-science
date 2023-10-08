@@ -44,7 +44,7 @@
   <div class="max-w-screen-xl mx-auto space-y-4 justify-between px-4 text-gray-800 dark:text-gray-300">
     <header class="flex flex-col gap-4 justify-between md:flex-row w-full">
       <h1 class="hidden md:flex uppercase font-bold px-8 xl:px-0">PROJECTS</h1>
-      <div class="flex gap-2 "> 
+      <div class="flex gap-2 w-full justify-end "> 
         <button @click="navigateTo('/search/projects/list')" class="text-blue-400 uppercase font-semibold text-sm flex gap-2 items-center">View All <Icon icon="ic:baseline-arrow-right" /></button>
       </div>   
     </header>
