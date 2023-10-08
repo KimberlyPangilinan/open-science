@@ -45,7 +45,7 @@
     <header class="flex flex-col gap-4 justify-between md:flex-row w-full">
       <h1 class="hidden md:flex uppercase font-bold px-8 xl:px-0">PROJECTS</h1>
       <div class="flex gap-2 "> 
-        <button @click="navigateTo('/search/projects/list')" class="text-gray-300"><Icon icon="ic:round-view-list" width="30" height="30" /></button>
+        <button @click="navigateTo('/search/projects/list')" class="text-blue-400 uppercase font-semibold text-sm flex gap-2 items-center">View All <Icon icon="ic:baseline-arrow-right" /></button>
       </div>   
     </header>
     <transition name="slide-fade" mode="out-in">

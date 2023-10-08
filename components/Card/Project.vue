@@ -50,9 +50,9 @@
                     </span>
                 </article>      
                 <div class="flex justify-between items-center">
-                    <ButtonPrimary class="hidden md:flex" @handle-click="navigateTo(`/search/projects/${link}`)">
+                    <!-- <ButtonPrimary class="hidden md:flex" @handle-click="navigateTo(`/search/projects/${link}`)">
                         Read more
-                    </ButtonPrimary>
+                    </ButtonPrimary> -->
                 </div> 
             </div>
             </div>

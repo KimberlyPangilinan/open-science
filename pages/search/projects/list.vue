@@ -18,11 +18,11 @@
    <section class="max-w-screen-xl mx-auto space-y-4 justify-between px-4 text-gray-800 dark:text-gray-300">
     <header class="flex flex-col gap-4 justify-between md:flex-row">
       <h1 class="hidden md:flex uppercase font-bold px-8 xl:px-0  w-full">PROJECTS</h1>
-      <div class="flex gap-2 text-gray-300"> 
-        <form @submit.prevent="" class="flex w-full ">
+      <div class="w-full justify-end flex gap-4 text-gray-300"> 
+        <form @submit.prevent="" class="flex  ">
           <input  type="text" v-model="search" placeholder="Search project..." class=" rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-6 py-2 text-xs"/>
         </form> 
-        <button @click="navigateTo('/search/projects/')"><Icon icon="ic:round-view-carousel" width="30" height="30" /></button>
+        <button class="text-blue-400 uppercase font-semibold text-sm flex gap-2 items-center" @click="navigateTo('/search/projects/')">For You <Icon icon="ic:baseline-arrow-left" /></button>
       </div>   
     </header>
    <div class="flex flex-row-reverse gap-2">
@@ -31,9 +31,9 @@
         <Card 
           class="w-full"
           v-for="item in Projects.slice(pagination.start,pagination.end)" 
-          :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.label">
-          <ButtonPrimary class="hidden md:flex" @handle-click="navigateTo(`/search/projects/${link}`)">
-                    Read more
+          :label="item.label" :categories="item.categories" :collaborators="item.collaborators" :desc="item.desc" :link="item.label" >
+          <ButtonPrimary class="hidden md:flex" >
+                   Request to Collaborate
           </ButtonPrimary>
         </Card>
     </div>

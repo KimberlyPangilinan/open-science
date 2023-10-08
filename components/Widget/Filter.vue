@@ -2,7 +2,7 @@
 const isOpen = ref(true)
 </script>
 <template>
-        <form class="border border-gray-200 rounded-md lg:w-[14em] text-sm text-gray-800 dark:text-gray-100">
+        <form class="border border-gray-200 dark:border-gray-700 rounded-md lg:w-[14em] text-sm text-gray-800 dark:text-gray-100">
           <h3 class="">
             <button type="button" class="flex w-full items-center justify-between  px-2 py-3 " aria-controls="filter-section-mobile-0" aria-expanded="false">
               <span class="font-bold ">Categories</span>
