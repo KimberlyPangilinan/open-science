@@ -42,6 +42,9 @@
       $toast.success("Login successfully")
     }, 2000); 
   }
+  const onSuccess = resp => console.log(resp)
+// eslint-disable-next-line no-console
+const onError = resp => console.error(resp)
 </script>
 
 
@@ -81,6 +84,7 @@
           </div>
           <ButtonState :state="loading.email" type="submit" class="w-full ">Login to your account</ButtonState>
           <ButtonState :state="loading.google" type="submit" class="w-full bg-blue-300 disabled:bg-blue-100">Sign in with Google</ButtonState>
+          <GoogleSignInButton @success="onSuccess" @error="onError" />
           <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
             Not registered? 
             <a href="#" @click="loginModal = false;signupModal = true" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
