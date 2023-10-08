@@ -43,7 +43,7 @@
         </DropdownMenu>
         <li @click="$emit('handleClick')"><NuxtLink to="/user" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Dashboard</NuxtLink></li>
         <li @click="$emit('handleClick')"><NuxtLink to="/home" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Settings</NuxtLink></li>
-        <li ><a @click="handleLogout" class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Sign out</a></li>
+        <button  @click="handleLogout();$emit('handleClick')" ><a  class="py-2 px-4 text-gray-900 dark:text-gray-100" aria-current="page">Sign out</a></button>
       </ul>
     </div>
     <Backdrop @handleClick="$emit('handleClick')" />

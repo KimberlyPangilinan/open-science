@@ -11,8 +11,8 @@
 <template>
     <section class=" bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
         <div class="flex flex-col gap-4 py-8 px-8 mx-auto max-w-[30em] text-center z-10 relative md:max-w-screen-xl lg:py-16 ">
-            <h1 class="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-3xl dark:text-[#f4f4f4]">We invest in the world’s potential</h1>
-            <p class="mb-8 text-sm font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Insert your tagline. Here at Open App we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+            <h1 class="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-3xl dark:text-[#f4f4f4]">Where Open Science Meets Innovation</h1>
+            <p class="mb-8 text-sm font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Unlocking the Future of Science and Innovation: Explore C.O.R.T - Curating Open Science, Resources, and Technologies</p>
             
             <form @submit.prevent="handleSubmit" class="w-full max-w-md mx-auto">   
                 <label class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-[#f4f4f4]">Search</label>
