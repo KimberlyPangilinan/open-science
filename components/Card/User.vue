@@ -12,9 +12,9 @@ defineProps(["desc","image","label","categories"])
                 <a href="#" class="mb-2 bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400 inline-flex items-center justify-center">{{ item }}</a>
             </span>
         </div> 
-        <div class="flex mt-4 space-x-3 md:mt-2">
+        <div class="flex flex-col lg:flex-row gap-2 ">
             <ButtonPrimary>Invite</ButtonPrimary>
-            <ButtonPrimary class="bg-white text-gray-600">Message</ButtonPrimary>
+            <ButtonPrimary class="bg-white text-gray-600">Messssage</ButtonPrimary>
         </div>
         <div class="my-2 min-h-[4em]">
             <p class="text-xs mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3 ">{{desc}}</p>

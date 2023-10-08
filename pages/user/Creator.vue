@@ -57,9 +57,11 @@
 
 </script>
 <template>
-    <div class="w-[100%] px-8 py-4 ">
+    <div class="w-[100%] px-2  md:px-8 py-4 ">
         <header class="flex justify-between">
-            <h1 class="uppercase font-bold text-gray-800 dark:text-[#f4f4f4] text-sm px-8 xl:px-0">Manage as Creator</h1>
+            <h1 class="flex flex-col gap-2 uppercase font-bold text-gray-800 dark:text-[#f4f4f4] text-sm px-8 xl:px-0">Projects
+                <span class="text-xs normal-case font-normal">Projects and collaborations you managed</span>
+            </h1>
             <div>
                 <ButtonPrimary @handleClick="projectModal= !projectModal">Add Project <Icon icon="ion:add-outline" /></ButtonPrimary>
             </div>

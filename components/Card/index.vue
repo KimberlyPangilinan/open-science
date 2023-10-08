@@ -20,7 +20,7 @@
                 <a href="#" class="mb-2 bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400 inline-flex items-center justify-center">{{ item }}</a>
             </span>
             <p class="text-xs mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3 ">{{desc}}</p>
-            <div class="flex flex-col sm:flex-row justify-start md:justify-between items-start gap-1">
+            <div class="flex flex-col sm:flex-row justify-start md:justify-between items-start gap-1" v-if="collaborators">
                 <header>
                     <h3 class="flex flex-col gap-4 text-xs font-semibold opacity-40">COLLABORATORS NEEDED</h3>
                 </header>
@@ -38,11 +38,8 @@
                     <img  v-for="item in collaborators" class="w-8 h-8 border-2 border-[#f4f4f4] rounded-full dark:border-gray-800" :src="item.image" alt="">
                     <a v-if="collaborators" class="flex items-center justify-center w-8 h-8 text-xs font-medium text-[#f4f4f4] bg-gray-700 border-2 border-[#f4f4f4] rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">+99</a>
                 </div>   
-                <slot></slot>
-            
-
-                
             </div>
+            <slot></slot>
          
         </div>
     </div>
