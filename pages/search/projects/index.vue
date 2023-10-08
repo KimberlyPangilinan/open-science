@@ -52,9 +52,9 @@
       <CardProject :key="item.label" :label="item.label" :categories="item.categories" :image="item.image" :collaborators="item.collaborators" :desc="item.desc" :link="item.label"/>
     </transition>
   </div>
-  <div class="absolute bottom-[10%] right-[10%] w-full flex items-end justify-end">
-    <button class="mr-6 text-gray-100 rounded-full bg-gray-300 p-4 opacity-30 hover:opacity-100 md:opacity-100"  @click="handleIgnore"><Icon icon="ph:x" /></button>
-    <button class="mr-6 text-gray-100 rounded-full bg-custom-primary p-4 disabled:bg-[#b5c7bb] opacity-30 hover:opacity-100 md:opacity-100" :disabled="limitReached" @click="handleApply"><Icon icon="ph:check"/></button>
+  <div class="absolute bottom-[10%] w-full flex items-end justify-center md:justify-end md:right-[10%]">
+    <button class="mr-6 text-gray-100 rounded-full bg-gray-300 p-4 opacity-60 hover:opacity-100 md:opacity-100 active:animate-ping"  @click="handleIgnore"><Icon icon="ph:x" /></button>
+    <button class="mr-6 text-gray-100 rounded-full bg-custom-primary p-4 disabled:bg-[#b5c7bb] opacity-60 hover:opacity-100 md:opacity-100 animate-pulse active:animate-ping" :disabled="limitReached" @click="handleApply"><Icon icon="ph:check"/></button>
   </div>
 </template>
 <style scoped>

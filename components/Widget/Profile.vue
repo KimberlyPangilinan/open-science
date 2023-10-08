@@ -1,6 +1,6 @@
 <template>
-            <div class="flex flex-col gap-4 md:flex-row min-h-screen bg-[#f4f4f4]">
-                <div class=" md:max-w-[20em] md:h-[80vh] flex flex-col justify-between  dark:bg-gray-800 rounded-lg shadow ml-4">
+            <div class="flex flex-col gap-4 md:flex-row min-h-screen bg-[#f4f4f4] dark:bg-gray-900">
+                <div class=" md:max-w-[20em] md:h-[80vh] flex flex-col justify-between  dark:bg-gray-800 rounded-lg shadow m-4 md:ml-4">
                     <div class="flex flex-col items-center p-4 md:p-10">
                         <img class="w-16 h-16 md:w-24 md:h-24  mb-3 rounded-full shadow-lg" src="https://www.pngkit.com/png/detail/108-1082173_male-profile-face.png" alt="Bonnie image"/>
                         <h5 class="mb-1 md:text-xl font-medium text-gray-900 dark:text-[#f4f4f4]">Bonnie Green</h5>
