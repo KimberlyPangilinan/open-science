@@ -54,28 +54,28 @@
     <div class="hidden md:flex gap-8 items-center align-middle text-gray-300">
       <Icon class="hidden md:flex"  icon="jam:messages-f" @click="navigateTo('/chat/')" width="20" height="20"/> 
       <div class="hidden md:flex">    
-      <DropdownMenu title="Menu">
-        <template v-slot:button>
-          <img v-if="user.avatar" :src="user.avatar" width="24" height="24" class="object-cover rounded-full border-2 border-gray-300"/>
-          <Icon v-else icon="mingcute:user-4-fill"  width="20" height="20"/> 
-        </template>
-        <div class="px-4 py-3">
-            <span class="block text-sm text-gray-900 dark:text-[#f4f4f4]">{{user.name}}</span>
-            <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{user.email}}</span>
-        </div>
-        <ul class="py-2" aria-labelledby="user-menu-button">
-          <li 
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-[#f4f4f4]"
-            @click="navigateTo('/user')">
-            Dashboard
-          </li>
-          <li 
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-[#f4f4f4]" 
-            @click="handleLogout">
-            Sign out
-          </li>
-        </ul>
-      </DropdownMenu>
+        <DropdownMenu title="Menu">
+          <template v-slot:button>
+            <img v-if="user.avatar" :src="user.avatar" width="24" height="24" class="object-cover rounded-full border-2 border-gray-300"/>
+            <Icon v-else icon="mingcute:user-4-fill"  width="20" height="20"/> 
+          </template>
+          <div class="px-4 py-3">
+              <span class="block text-sm text-gray-900 dark:text-[#f4f4f4]">{{user.name}}</span>
+              <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{user.email}}</span>
+          </div>
+          <ul class="py-2" aria-labelledby="user-menu-button">
+            <li 
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-[#f4f4f4]"
+              @click="navigateTo('/user')">
+              Dashboard
+            </li>
+            <li 
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-[#f4f4f4]" 
+              @click="handleLogout">
+              Sign out
+            </li>
+          </ul>
+        </DropdownMenu>
       </div>
     </div>
     </div>

@@ -49,14 +49,14 @@
   <section class="h-[100vh] flex flex-col justify-center items-center bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
     <div class="flex flex-col gap-4 py-8 px-8 mx-auto max-w-[30em] text-center z-10 relative md:max-w-screen-xl lg:py-16 ">        <h1 class="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-3xl dark:text-[#f4f4f4]">We invest in the world’s potential</h1>
       <p class="mb-8 text-sm font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Saka ko na change design gawin mo muna. Insert your tagline. Here at Open App we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-      <div class="flex items-center justify-center gap-4">
-        <ButtonPrimary @handleClick="loginModal = true" class="z-[90]" >Login</ButtonPrimary>
-        <ButtonPrimary @handleClick="signupModal = true" class="z-[90] bg-transparent border-2 border-custom-primary !text-custom-primary" >Sign Up</ButtonPrimary>
+      <div class="w-full flex flex-wrap items-center justify-center gap-4">
+        <ButtonPrimary @handleClick="loginModal = true" class="z-[90] !min-w-[60vw] md:!min-w-0" >Login</ButtonPrimary>
+        <ButtonPrimary @handleClick="signupModal = true" class="z-[90] !min-w-[60vw] md:!min-w-0 bg-transparent border-2 border-custom-primary !text-custom-primary" >Sign Up</ButtonPrimary>
       </div> 
     </div>
 
     <div class="flex flex-wrap gap-2 md:gap-8 max-w-screen-xl mx-auto px-4 md:px-8 justify-around">
-      <CardTransparent value="102+102" label="Countries represented" />
+      <CardTransparent value="102" label="Countries represented" />
       <CardTransparent value="1482" label="Open Projects" @click="navigateTo('/search/projects')"/>
       <CardTransparent value="1093" label="Open Science"/>
       <CardTransparent value="1093" label="Collaborators" @click="navigateTo('/search/collaborators')"/>
