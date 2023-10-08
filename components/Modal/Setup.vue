@@ -39,10 +39,13 @@ const filterSkills = () => {
     item.toLowerCase().includes(skill.value.toLowerCase())
   );
 };
+
+
 </script>
+
 <template>
   <div class="flex items-center justify-center fixed inset-0 w-screen h-screen bg-[#e9e9e96e] z-50">
-    <div class="flex flex-col items-center justify-start md:justify-between min-w-[90vw] sm:min-w-0 gap-3  min-h-[60vh] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] px-6 py-8 rounded-sm bg-[#f4f4f4] dark:bg-gray-800 shadow-md text-center">
+    <div class="flex flex-col items-center justify-between min-w-[90vw] sm:min-w-0 gap-3  min-h-[60vh] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] px-6 py-8 rounded-sm bg-[#f4f4f4] dark:bg-gray-800 shadow-md text-center">
       <div class="font-bold text-sm mb-4 flex justify-between w-[80vw] md:w-[40vw] md:max-w-[40vw]">
         <h2 class="flex flex-col gap-2 text-left font-bold text-gray-800 dark:text-gray-300" >Add your Skills
           <span class="text-xs font-normal text-gray-700 dark:text-gray-400">Adding skills is a powerful way to enhance your marketability </span>
@@ -71,8 +74,10 @@ const filterSkills = () => {
               <option v-for="option in filteredSkills" :value="option" class="w-[90px] bg-red-100"></option>
             </datalist> 
           </div>
+         
         </div>
         <ButtonState :state="isLoading" @handleClick="handleSaveSkills(); $emit('handleClick')">Save</ButtonState>
+        
       </form>
       
     </div>

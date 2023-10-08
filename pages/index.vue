@@ -13,7 +13,6 @@
             2000
         );
     })
-
 </script>
 
 <template>
