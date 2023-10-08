@@ -5,6 +5,14 @@
     middleware: 'guest',
     layout: "empty",
   })
+  const supabase = useSupabaseClient()
+const email = ref('')
+const signInWithOtp = async () => {
+  const { error } = await supabase.auth.signInWithOAuth({
+  provider: 'google',
+})
+  if (error) console.log(error)
+}
 
   const { $toast } = useNuxtApp();
   const loginModal = ref(false)
@@ -46,7 +54,7 @@
 
 
 <template>    
-  <section class="h-[100vh] flex flex-col justify-center items-center bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+  <!-- <section class="h-[100vh] flex flex-col justify-center items-center bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
     <div class="flex flex-col gap-4 py-8 px-8 mx-auto max-w-[30em] text-center z-10 relative md:max-w-screen-xl lg:py-16 ">        <h1 class="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-3xl dark:text-[#f4f4f4]">We invest in the world’s potential</h1>
       <p class="mb-8 text-sm font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Saka ko na change design gawin mo muna. Insert your tagline. Here at Open App we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
       <div class="w-full flex flex-wrap items-center justify-center gap-4">
@@ -62,9 +70,15 @@
       <CardTransparent value="1093" label="Collaborators" @click="navigateTo('/search/collaborators')"/>
     </div>
     <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-gray-950 w-full h-[70vh] absolute top-0 left-0 z-0"></div>
-  </section>
+  </section> -->
 
-
+  <button @click="signInWithOtp">
+      Sign In with E-Mail
+    </button>
+    <input
+      v-model="email"
+      type="email"
+    />
   <Modal v-if="loginModal" @handleClick="loginModal= false">
     <template v-slot:buttons>
       <form class="space-y-6" @submit.prevent="handleLogin()">
@@ -81,11 +95,13 @@
           </div>
           <ButtonState :state="loading.email" type="submit" class="w-full ">Login to your account</ButtonState>
           <ButtonState :state="loading.google" type="submit" class="w-full bg-blue-300 disabled:bg-blue-100">Sign in with Google</ButtonState>
+          
           <div class="text-xs font-medium text-gray-500 dark:text-gray-300">
             Not registered? 
             <a href="#" @click="loginModal = false;signupModal = true" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
           </div>
         </form>
+    
     </template>
     </Modal>
     <Modal v-if="signupModal" @handleClick="signupModal= false" >
