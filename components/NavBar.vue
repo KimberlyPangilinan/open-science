@@ -24,9 +24,9 @@
 <template>
   <header class="bg-[#f4f4f4] shadow dark:bg-gray-900 sticky top-0 z-[99]">
     <div class="w-full md:max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <NuxtLink to="https://open-science-three.vercel.app/" class="flex items-center gap-2">
+    <NuxtLink to="https://project-cort.vercel.app/" class="flex items-center gap-2">
         <Icon icon="logos:sensu-icon" width="30" height="30"/>
-        <span class="self-center text-xl font-semibold [#f4f4f4]space-nowrap dark:text-[#f4f4f4]">Open Site</span>
+        <span class="self-center text-xl font-semibold [#f4f4f4]space-nowrap dark:text-[#f4f4f4]">Project C.O.R.T.</span>
     </NuxtLink>
 
     <button type="button" @click="menuOpen= !menuOpen" class="flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
